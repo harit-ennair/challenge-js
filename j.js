@@ -13,11 +13,6 @@ const questions = [
 
 
 
-
-
-
-
-
 let currentanswer = 0
 let score = 0
 
@@ -28,30 +23,27 @@ const scoreelement = document.getElementById("score")
 
 trueBtn.addEventListener("click", () => answer(true))
 falseBtn.addEventListener("click", () => answer(false))
-const min = 0
-const max = questions.length
 
 
 
 function answer(shiha) {
-    const currentquestion = questions[currentanswer]
 
-   
-    if ((shiha && currentquestion.answer || !shiha && !currentquestion.answer)) {
+     const currentquestion = questions[currentanswer]
+
+    if (shiha == currentquestion.answer) {
         score++;
     }
 
-  
     currentanswer++;
     if (currentanswer < questions.length) {
 
         const currentquestion = questions[currentanswer]
         questionelement.textContent = currentquestion.question
-
+ 
     } else {
         
-            questionelement.textContent = "quiz end"
-             scoreelement.textContent = `Score: ${score}`
+        questionelement.textContent = "quiz end"
+        scoreelement.textContent = `Score: ${score}`
     }
 
 }
